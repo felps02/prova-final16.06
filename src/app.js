@@ -9,7 +9,7 @@ const order = require('./routes/orderRoutes');
 const userRoutes = require('./routes/userRoutes');
 
 
-// const logger = require('./src/middlewares/logger');
+ const logger = require('./middlewares/logger.js');
 // const errorHandler = require('./src/middlewares/errorHandler');
 const sequelize = require('./config/database');
 

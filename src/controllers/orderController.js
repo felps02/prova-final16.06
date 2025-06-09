@@ -6,7 +6,7 @@ module.exports = {
       const { userId, products } = req.body;
       const order = await Order.create({ userId });
 
-      // Associa produtos ao pedido
+      // associa o produto ao pedido com quantidade 
       for (const item of products) {
         const product = await Product.findByPk(item.productId);
         if (product) {
