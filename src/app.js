@@ -13,8 +13,7 @@ const userRoutes = require('./routes/userRoutes');
 // const errorHandler = require('./src/middlewares/errorHandler');
 const sequelize = require('./config/database');
 
-
-// app.use(logger);
+app.use(logger);
 app.use(express.json());
 app.use('/login', login);
 app.use('/register', register);
