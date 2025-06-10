@@ -10,7 +10,7 @@ const userRoutes = require('./routes/userRoutes');
 
 
  const logger = require('./middlewares/logger.js');
-// const errorHandler = require('./src/middlewares/errorHandler');
+  const erroHandler = require('./middlewares/erroHandler.js');
 const sequelize = require('./config/database');
 
 app.use(logger);
@@ -23,7 +23,7 @@ app.use('/categories', category);
 app.use('/users', userRoutes); 
 app.use('/products', product);
 app.use('/orders', order);
-// app.use(errorHandler);
+ app.use(erroHandler);
 
 
 sequelize.authenticate()
@@ -34,7 +34,7 @@ sequelize.authenticate()
     console.error('Não foi possível conectar ao banco de dados:', err);
   });
 
-// Sincroniza os modelos com o banco de dados 
+
 sequelize.sync({ force: true })
   .then(() => {
     console.log('Modelos sincronizados com o banco de dados.');
@@ -43,4 +43,4 @@ sequelize.sync({ force: true })
     console.error('Erro ao sincronizar modelos:', err);
   });
 
-module.exports = app; // Exporta o app para testes ou outros usos
+module.exports = app; 
