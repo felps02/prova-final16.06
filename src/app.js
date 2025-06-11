@@ -12,6 +12,9 @@ const userRoutes = require('./routes/userRoutes');
  const logger = require('./middlewares/logger.js');
   const erroHandler = require('./middlewares/erroHandler.js');
 const sequelize = require('./config/database');
+const { swaggerUi, swaggerSpec } = require('./swagger.js');
+
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
 app.use(logger);
 app.use(express.json());
